@@ -1,3 +1,8 @@
+# Module 1 - Create a Blockchain
+
+# To be installed:
+# Flask==0.12.2: pip install Flask==0.12.2
+
 # Importing the libraries
 import datetime
 import hashlib
@@ -32,3 +37,7 @@ class Blockchain:
             else:
                 new_proof += 1
         return new_proof
+
+    def hash(self, block):
+        encoded_block = json.dumps(block, sort_keys = True).encode()
+        return hashlib.sha256(encoded_block).hexdigest()
